@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>隐私政策与用户协议</title>
+    <title>计时宝 - 法律文件与技术サポート</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -81,6 +81,13 @@
             font-size: 14px;
         }
         @media (prefers-color-scheme: dark) { footer { color: #666; } }
+        .email-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        @media (prefers-color-scheme: dark) {
+            .email-link { color: #6eb5ff; }
+        }
     </style>
 </head>
 <body>
@@ -89,6 +96,7 @@
     <div class="tabs">
         <button class="tab active" onclick="showTab('privacy')">隐私政策</button>
         <button class="tab" onclick="showTab('terms')">用户协议</button>
+        <button class="tab" onclick="showTab('support')">技术支持</button>
     </div>
 
     <div class="content">
@@ -111,7 +119,7 @@
             <p>您可以随时删除本应用来清除所有本地存储的数据。卸载应用后，所有相关数据将被永久删除。</p>
 
             <h2>五、联系我们</h2>
-            <p>如您对本隐私政策有任何疑问，请通过应用内反馈渠道联系我们。</p>
+            <p>如您对本隐私政策有任何疑问，请通过以下方式联系我们。</p>
         </div>
 
         <!-- 用户协议 -->
@@ -133,7 +141,34 @@
             <p>我们保留随时修改或中断服务的权利，并会通过合理方式通知用户。</p>
 
             <h2>五、联系我们</h2>
-            <p>如您对本协议有任何疑问，请通过应用内反馈渠道联系我们。</p>
+            <p>如您对本协议有任何疑问，请通过以下方式联系我们。</p>
+        </div>
+
+        <!-- 技术支持 -->
+        <div id="support" class="hidden">
+            <p class="date">更新时间：2026年4月19日</p>
+
+            <h2>联系我们</h2>
+            <p>如果您在使用计时宝过程中遇到任何问题，欢迎通过电子邮件联系我们：</p>
+            <p>📧 <a href="mailto:HarryKey@outlook.com" class="email-link">HarryKey@outlook.com</a></p>
+            <p>我们会在收到邮件后尽快回复您。</p>
+
+            <h2>常见问题</h2>
+
+            <h2>收不到提醒通知？</h2>
+            <p>请确保已在 iOS 系统设置中开启计时宝的通知权限。路径：设置 → 通知 → 计时宝 → 允许通知</p>
+
+            <h2>计时不准确？</h2>
+            <p>请确保手机未开启低电量模式或省电模式，这些模式可能会影响后台计时精度。</p>
+
+            <h2>如何删除历史记录？</h2>
+            <p>进入"历史"标签，点击右上角菜单可选择清除特定时间段的历史记录。</p>
+
+            <h2>如何更改默认场景？</h2>
+            <p>进入"设置" → "默认场景"，选择您常用的场景即可。</p>
+
+            <h2>App 使用数据</h2>
+            <p>计时宝为纯离线应用，所有数据仅存储在您的设备本地。我们不会收集、存储或上传您的任何使用数据。</p>
         </div>
     </div>
 
@@ -143,9 +178,11 @@
         function showTab(tab) {
             document.getElementById('privacy').classList.toggle('hidden', tab !== 'privacy');
             document.getElementById('terms').classList.toggle('hidden', tab !== 'terms');
+            document.getElementById('support').classList.toggle('hidden', tab !== 'support');
 
             document.querySelectorAll('.tab').forEach(t => {
-                t.classList.toggle('active', t.textContent === (tab === 'privacy' ? '隐私政策' : '用户协议'));
+                const tabNames = { privacy: '隐私政策', terms: '用户协议', support: '技术支持' };
+                t.classList.toggle('active', t.textContent === tabNames[tab]);
             });
         }
     </script>
